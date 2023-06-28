@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberArea" Type="nvarchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistoryChange">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberStock" Type="nvarchar" MaxLength="7" />
+    <Property Name="NumberAreaId" Type="int" Nullable="false" />
+    <Property Name="NumberPicket" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="DateChange" Type="date" Nullable="false" />
+    <Property Name="ChangeInfo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Picket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberAreaId" Type="int" Nullable="false" />
+    <Property Name="NumberPicket" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="DateAdd" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberStock" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="NumberAreaId" Type="int" Nullable="false" />
+    <Property Name="NumberPicket" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="DateAdd" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_HistoryChange_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="HistoryChange" Type="Self.HistoryChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HistoryChange">
+        <PropertyRef Name="NumberAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Picket_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="Picket" Type="Self.Picket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Picket">
+        <PropertyRef Name="NumberAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Area">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="NumberAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoryChange" EntityType="Self.HistoryChange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Picket" EntityType="Self.Picket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_HistoryChange_Area" Association="Self.FK_HistoryChange_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="HistoryChange" EntitySet="HistoryChange" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Picket_Area" Association="Self.FK_Picket_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="Picket" EntitySet="Picket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Area" Association="Self.FK_Stock_Area">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

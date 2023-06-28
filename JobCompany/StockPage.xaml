@@ -1,0 +1,42 @@
+﻿<Page x:Class="JobCompany.StockPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JobCompany"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StockPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="DeleteBtn" HorizontalAlignment="Left" Height="50" Margin="30 0 0 0" Padding="5" Background="IndianRed" Click="DeleteBtn_Click">
+            <Image Source="\Resources\Delete.png"/>
+        </Button>
+        <Button x:Name="AddStockBtn" Content="Добавить склад" Background="LightGreen" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New" FontSize="24" Padding="10" Click="AddStockBtn_Click"></Button>
+        <Button x:Name="RefreshBtn" HorizontalAlignment="Right" Height="50" Margin="0 0 30 0" Padding="5" Background="LightSteelBlue" Click="RefreshBtn_Click">
+            <Image Source="\Resources\Refresh.png"/>
+        </Button>
+
+        <DataGrid x:Name="StockDGrid" Grid.Row="1" Style="{StaticResource AllDataGridStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер склада" Binding="{Binding NumberStock}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер площадки" Binding="{Binding Area.NumberArea}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер пикета" Binding="{Binding NumberPicket}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Груз на площадке(т)" Binding="{Binding Weight}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата добавления склада" Binding="{Binding DateAdd}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ChangeStock" Content="Изменить склад" Click="ChangeStock_Click" FontSize="16" FontFamily="Courier New" Padding="5" Width="auto" Background="{x:Null}"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

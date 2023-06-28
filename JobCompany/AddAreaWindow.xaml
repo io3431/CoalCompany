@@ -1,0 +1,30 @@
+﻿<Window x:Class="JobCompany.AddAreaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JobCompany"
+        mc:Ignorable="d"
+        Title="Добавление площадки" Height="350" Width="500" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Первое число диапазона:" Style="{StaticResource TextBlockOnAddArea}"></TextBlock>
+                <TextBox x:Name="FirstNumberText" Style="{StaticResource TextBoxOnAddArea}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Второе число диапазона:" Style="{StaticResource TextBlockOnAddArea}"></TextBlock>
+                <TextBox x:Name="OptionalNumberText" Style="{StaticResource TextBoxOnAddArea}" Text="необяз." Foreground="Gray" GotFocus="OptionalNumberText_GotFocus"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Вес:" Style="{StaticResource TextBlockOnAddArea}" Width="55"></TextBlock>
+                <TextBox x:Name="WeightBox" Style="{StaticResource TextBoxOnAddArea}"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="SaveBtn" Content="Сохранить" Grid.Row="1" Background="LightGreen" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New" FontSize="24" Padding="10" Click="SaveBtn_Click"></Button>
+    </Grid>
+</Window>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CoalCompanyEntities">
+    <EntitySetMapping Name="Area">
+      <EntityTypeMapping TypeName="Model.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumberArea" ColumnName="NumberArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoryChange">
+      <EntityTypeMapping TypeName="Model.HistoryChange">
+        <MappingFragment StoreEntitySet="HistoryChange">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumberStock" ColumnName="NumberStock" />
+          <ScalarProperty Name="NumberAreaId" ColumnName="NumberAreaId" />
+          <ScalarProperty Name="NumberPicket" ColumnName="NumberPicket" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DateChange" ColumnName="DateChange" />
+          <ScalarProperty Name="ChangeInfo" ColumnName="ChangeInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Picket">
+      <EntityTypeMapping TypeName="Model.Picket">
+        <MappingFragment StoreEntitySet="Picket">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumberAreaId" ColumnName="NumberAreaId" />
+          <ScalarProperty Name="NumberPicket" ColumnName="NumberPicket" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="Model.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumberStock" ColumnName="NumberStock" />
+          <ScalarProperty Name="NumberAreaId" ColumnName="NumberAreaId" />
+          <ScalarProperty Name="NumberPicket" ColumnName="NumberPicket" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
